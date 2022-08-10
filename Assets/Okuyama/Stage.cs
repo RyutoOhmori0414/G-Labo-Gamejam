@@ -7,8 +7,8 @@ public class Stage : MonoBehaviour
     [SerializeField] float _speedMax = 5;
     [SerializeField] float _speed = 5;
     [SerializeField] float _minusSpeed = 3;
+    [SerializeField] SpriteRenderer[] _nigthStage;
     [SerializeField] SpriteRenderer[] _brakingDownStage;
-    [SerializeField] SpriteRenderer[] _morningStage;
     [Tooltip("スタート位置")]private Vector2 startPos;
     [Tooltip("背景幅")] float repeatWidth;
     bool _mainusBool = false;
@@ -46,7 +46,7 @@ public class Stage : MonoBehaviour
     }
     public void Timer30()
     {
-        foreach (SpriteRenderer childTransform in _brakingDownStage)
+        foreach (SpriteRenderer childTransform in _nigthStage)
         {
             float color_a = 0;
             color_a -= Time.deltaTime;
@@ -60,7 +60,7 @@ public class Stage : MonoBehaviour
     }
     public void Timer0()
     {
-        foreach (SpriteRenderer childTransform in _morningStage)
+        foreach (SpriteRenderer childTransform in _brakingDownStage)
         {
             float color_a = 0;
             color_a -= Time.deltaTime;
