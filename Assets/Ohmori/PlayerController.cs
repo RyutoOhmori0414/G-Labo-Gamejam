@@ -16,9 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _speed = 1f;
     /// <summary>お邪魔時に使うジェネレーター</summary>
     [SerializeField] GameObject _generator;
+    /// <summary>持っているアイテム</summary>
+    private void OnEnable()
+    {
+        GameManager.NowGameTrun += WakeUpPlayer;
+    }
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>(); 
+        _rb.simulated = false;
     }
 
     // Update is called once per frame
@@ -50,5 +56,13 @@ public class PlayerController : MonoBehaviour
             //_generator.GetComponent<EnemyGenerator>().GenerationOBJ();
         }
         _hit.Invoke();
+    }
+
+    void WakeUpPlayer(GameManager.GameTrun gameTurn)
+    {
+        if (gameTurn == GameManager.GameTrun.GameStart)
+        {
+            _rb.simulated = true;
+        }
     }
 }
