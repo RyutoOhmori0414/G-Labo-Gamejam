@@ -7,9 +7,12 @@ public class Stage : MonoBehaviour
     [SerializeField] float _speedMax = 5;
     [SerializeField] float _speed = 5;
     [SerializeField] float _minusSpeed = 3;
+    [SerializeField] SpriteRenderer[] _brakingDownStage;
+    [SerializeField] SpriteRenderer[] _morningStage;
     [Tooltip("スタート位置")]private Vector2 startPos;
     [Tooltip("背景幅")] float repeatWidth;
     bool _mainusBool = false;
+    //SpriteRenderer _spriteRenderer;
     
     void Start()
     {
@@ -19,21 +22,54 @@ public class Stage : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.x < startPos.x - repeatWidth)
-        {
-            transform.position = startPos;
-        }
-        transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
         if (_mainusBool) 
         { 
             _speed += Time.deltaTime;
             if(_speedMax == _speed) { _mainusBool = false;}
         }
+        Timer60();
     }
 
     public void Speed()
     {
         _speed -= _minusSpeed;
         _mainusBool = true;
+    }
+
+    public void Timer60()
+    {
+        if (transform.position.x < startPos.x - repeatWidth)
+        {
+            transform.position = startPos;
+        }
+        transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
+    }
+    public void Timer30()
+    {
+        foreach (SpriteRenderer childTransform in _brakingDownStage)
+        {
+            float color_a = 0;
+            color_a -= Time.deltaTime;
+            childTransform.color += new Color(0, 0, 0, color_a);
+        }
+        if (transform.position.x < startPos.x - repeatWidth)
+        {
+            transform.position = startPos;
+        }
+        transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
+    }
+    public void Timer0()
+    {
+        foreach (SpriteRenderer childTransform in _morningStage)
+        {
+            float color_a = 0;
+            color_a -= Time.deltaTime;
+            childTransform.color += new Color(0, 0, 0, color_a);
+        }
+        if (transform.position.x < startPos.x - repeatWidth)
+        {
+            transform.position = startPos;
+        }
+        transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
     }
 }
