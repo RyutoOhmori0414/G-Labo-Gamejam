@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     float _horizontal = default;
     //垂直方向の入力
     float _vertical = default;
+    /// <summary>お邪魔時に使うジェネレーター</summary>
+    [SerializeField] GameObject _generator;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -39,6 +41,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("ItemBox"))
+        {
+            Destroy(collision.gameObject);
+            //_generator.GetComponent<EnemyGenerator>().GenerationOBJ();
+        }
         _hit.Invoke();
     }
 }
