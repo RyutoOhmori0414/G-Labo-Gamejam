@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     float _horizontal = default;
     //垂直方向の入力
     float _vertical = default;
+    [Header("ボールの動くスピード")]
+    [SerializeField] float _speed = 1f;
     /// <summary>お邪魔時に使うジェネレーター</summary>
     [SerializeField] GameObject _generator;
     void Start()
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         _vertical = Input.GetAxisRaw("Vertical");
         _horizontal = Input.GetAxisRaw("Horizontal");
+        Vector3 Vect = new Vector3(_horizontal, _vertical, 0);
+        Vect = Vect.normalized;
 
         if (_vertical == 0)
         {
@@ -34,9 +38,8 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
 
-
-        _rb.AddForce(transform.right * _horizontal);
-        _rb.AddForce(transform.up * _vertical);
+        _rb.AddForce(transform.right * Vect.x * _speed);
+        _rb.AddForce(transform.up * Vect.y * _speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
