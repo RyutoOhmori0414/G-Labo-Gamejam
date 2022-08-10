@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("現在のゲームターン")]
     GameTrun _gameTrun = GameTrun.StandbyTurn;
     /// <summary>現在のターンが変わった時に通知する</summary>
-    public event Action<GameTrun> NowGameTrun;
+    public static event Action<GameTrun> NowGameTrun;
     [Tooltip("時間をはかる")]
     float _countTime;
     [Header("時間を表示するテキスト")]
