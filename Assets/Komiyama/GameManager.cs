@@ -41,8 +41,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += _startWaitTime;
         timer -= Time.deltaTime;
-        if(timer < 0)
+        if (timer < 0)
         {
             result.SetActive(true);
         }
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
             _gameTrun = GameTrun.GameStart;
             Debug.Log("�Ă΂ꂽ");
             NowGameTrun(_gameTrun);
+            _timeText.gameObject.SetActive(false);
         }
         else if(_gameTrun == GameTrun.StandbyTurn)
         {
