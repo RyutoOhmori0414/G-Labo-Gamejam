@@ -5,13 +5,16 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     [Header("Objectを生成する場所")]
-    List<GameObject> _generationLocation = new List<GameObject>();
+    [SerializeField] List<GameObject> _generationLocation = new List<GameObject>();
 
     [Header("生成するObject")]
-    List<GameObject> _generationObj = new List<GameObject>();
+    [SerializeField] List<GameObject> _generationObj = new List<GameObject>();
+
+    [Header("お邪魔アイテムのPrefab")]
+    [SerializeField] GameObject _disturbPrefab;
 
     [Header("生成する時間")]
-    float _generationTime = 0;
+    [SerializeField]float _generationTime = 0;
 
     [Tooltip("TImeをカウントする")]
     float _countTime = 0;
@@ -31,8 +34,18 @@ public class EnemyGenerator : MonoBehaviour
             int priceNum = Random.Range(0, _generationLocation.Count);
             int ObjectNum = Random.Range(0, _generationObj.Count);
 
-            GameObject Ins = Instantiate(_generationObj[ObjectNum], _generationObj[priceNum].transform.position, _generationObj[priceNum].transform.rotation);
+            GameObject Ins = Instantiate(_generationObj[ObjectNum], _generationLocation[priceNum].transform.position, _generationLocation[priceNum].transform.rotation);
 
+            _countTime = 0;
         }
+    }
+
+    /// <summary>お邪魔オブジェクトを生成する</summary>
+    public void GenerationObj() 
+    {
+        int priceNum = Random.Range(0, _generationLocation.Count);
+        int ObjectNum = Random.Range(0, _generationObj.Count);
+
+        GameObject Ins = Instantiate(_disturbPrefab, _generationLocation[priceNum].transform.position, _generationLocation[priceNum].transform.rotation);
     }
 }
