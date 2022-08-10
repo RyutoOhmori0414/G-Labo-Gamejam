@@ -307,26 +307,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1300436875}
     m_Modifications:
-    - target: {fileID: 1364231636653141702, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364231638463764362, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834370403718426886, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834370405097556042, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859002308054975458, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
     - target: {fileID: 5859002309778445424, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
       propertyPath: m_Name
       value: Player1 BackGround
@@ -374,18 +354,6 @@ PrefabInstance:
     - target: {fileID: 5859002309778445427, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859002309874006702, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8545449921772821538, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8545449923210683758, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -610,26 +578,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1300436875}
     m_Modifications:
-    - target: {fileID: 1364231636653141702, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364231638463764362, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834370403718426886, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834370405097556042, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859002308054975458, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
     - target: {fileID: 5859002309778445424, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
       propertyPath: m_Name
       value: Player2 BackGround
@@ -677,18 +625,6 @@ PrefabInstance:
     - target: {fileID: 5859002309778445427, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859002309874006702, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8545449921772821538, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8545449923210683758, guid: 06b8321276d1435429a2d93896e8c1dc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
