@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>‚Á‚Ä‚¢‚éƒAƒCƒeƒ€</summary>
     private void OnEnable()
     {
-        
+        GameManager.NowGameTrun += WakeUpPlayer;
     }
     void Start()
     {
@@ -58,8 +58,11 @@ public class PlayerController : MonoBehaviour
         _hit.Invoke();
     }
 
-    void WakeUpPlayer()
+    void WakeUpPlayer(GameManager.GameTrun gameTurn)
     {
-        _rb.simulated = true;
+        if (gameTurn == GameManager.GameTrun.GameStart)
+        {
+            _rb.simulated = true;
+        }
     }
 }
