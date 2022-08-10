@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     float timer = 120;
+    [SerializeField]
+    GameObject result = null;
     //MAX2min Œ¸‚Á‚Ä‚­
 
     void Start()
@@ -19,5 +21,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        if(timer < 0)
+        {
+            result.SetActive(true);
+        }
     }
 }
