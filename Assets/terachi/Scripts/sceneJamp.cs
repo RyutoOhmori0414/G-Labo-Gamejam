@@ -28,4 +28,9 @@ public class sceneJamp : MonoBehaviour
         #endif
     }
 
+    public void GoStart()
+    {
+        Debug.Log("コンティニューボタンが押された");
+    }
+
 }
