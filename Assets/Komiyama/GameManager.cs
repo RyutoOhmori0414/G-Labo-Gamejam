@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     float timer = 120;
     [SerializeField]
     GameObject result = null;
+    [Header("Gameを始めるまでの時間")]
+    [SerializeField]float _startWaitTime = 0;
     [Tooltip("現在のゲームターン")]
     GameTrun _gameTrun = GameTrun.StandbyTurn;
     /// <summary>現在のターンが変わった時に通知する</summary>
@@ -46,12 +48,17 @@ public class GameManager : MonoBehaviour
         }
 
         _countTime += Time.deltaTime;
-        _timeText.text = _countTime.ToString("F0");
+
         //カウントが0になった時
-        if (_countTime < 0) 
+        if (_countTime > _startWaitTime && _gameTrun == GameTrun.StandbyTurn)
         {
             _gameTrun = GameTrun.GameStart;
+            Debug.Log("呼ばれた");
             NowGameTrun(_gameTrun);
+        }
+        else if(_gameTrun == GameTrun.StandbyTurn)
+        {
+            _timeText.text = _countTime.ToString("F0");
         }
 
     }
