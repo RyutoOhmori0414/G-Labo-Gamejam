@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController1 : MonoBehaviour
 {
     /// <summary>îÌíeÇµÇΩèÍçáÇÃèàóù</summary>
     public static event Action _hit; 
@@ -24,14 +24,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>(); 
-        _rb.simulated = false;
+        //_rb.simulated = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _vertical = Input.GetAxisRaw("Vertical");
-        _horizontal = Input.GetAxisRaw("Horizontal");
+        _vertical = Input.GetAxisRaw("Vertical1");
+        _horizontal = Input.GetAxisRaw("Horizontal1");
         Vector3 Vect = new Vector3(_horizontal, _vertical, 0);
         Vect = Vect.normalized;
 
