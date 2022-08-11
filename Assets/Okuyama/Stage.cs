@@ -35,6 +35,7 @@ public class Stage : MonoBehaviour
 
     public void Speed()
     {
+        if (_speed <= 0) { return; }
         _speed -= _minusSpeed;
         _mainusBool = true;
     }
