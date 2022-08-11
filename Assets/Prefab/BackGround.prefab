@@ -141,9 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87fe6714be1e35f4d8d3e15bc602ce9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GoleInstans: 10
+  _backGroundSpeed: 0.08
   _speedMax: 10
   _speed: 10
   _minusSpeed: 3
+  _enemyGenerator: {fileID: 0}
   _nigthStage:
   - {fileID: 858479413682482828}
   - {fileID: 858479411818895296}
@@ -164,7 +167,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 11.0021515, y: 2.5912342}
