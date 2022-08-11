@@ -8,20 +8,21 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameTrun 
+    public enum GameTrun
     {
         StandbyTurn,
         GameStart,
         Result,
+        GameOver,
     }
 
     [SerializeField]
     float timer = 120;
     [SerializeField]
     GameObject result = null;
-    [SerializeField] float _fastTime = 60,_secondTime = 30;
+    [SerializeField] float _fastTime = 60, _secondTime = 30;
     [Header("Gameを始めるまでの時間")]
-    [SerializeField]float _startWaitTime = 0;
+    [SerializeField] float _startWaitTime = 0;
     [Tooltip("現在のゲームターン")]
     GameTrun _gameTrun = GameTrun.StandbyTurn;
 
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if(timer < _fastTime)
+        if (timer < _fastTime)
         {
             _stage[0].Timer30();
             _stage[1].Timer30();
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
         if (timer < 0)
         {
             result.SetActive(true);
+            _gameTrun = GameTrun.GameOver;
         }
 
         _countTime += Time.deltaTime;
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
             NowGameTrun(_gameTrun);
             _timeText.gameObject.SetActive(false);
         }
-        else if(_gameTrun == GameTrun.StandbyTurn)
+        else if (_gameTrun == GameTrun.StandbyTurn)
         {
             _timeText.text = _countTime.ToString("F0");
         }
@@ -81,7 +83,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// ゲームの状態をリザルトに変える
     /// </summary>
-    public void ChengeType(GameTrun trun) 
+    public void ChengeType(GameTrun trun)
     {
         _gameTrun = trun;
     }
