@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController2 : MonoBehaviour
 {
@@ -16,7 +17,17 @@ public class PlayerController2 : MonoBehaviour
     [SerializeField] float _speed = 1f;
     /// <summary>お邪魔時に使うジェネレーター</summary>
     [SerializeField] GameObject _generator;
-    /// <summary>持っているアイテム</summary>
+    /// <summary>お邪魔アイテム</summary>
+    [Header("お邪魔アイテム　ItemBoxのTag Ctrlを押して出るGameObject")]
+    [SerializeField] Dictionary<string, GameObject> _itemList = new Dictionary<string, GameObject>();
+    /// <summary>現在持っているアイテム</summary>
+    [SerializeField] GameObject _currentItem;
+    /// <summary>お助けアイテム</summary>
+    [Header("お助けアイテム　ItemBoxのTag Ctrlを押して出るGameObject")]
+    [SerializeField] Dictionary<string, GameObject> _itemList2 = new Dictionary<string, GameObject>();
+    /// <summary>現在持っているアイテムを表示するUI</summary>
+    [Header("現在持っているアイテムを表示するUI")]
+    [SerializeField] Image _currentItemUI;
     private void OnEnable()
     {
         GameManager.NowGameTrun += WakeUpPlayer;
@@ -46,18 +57,32 @@ public class PlayerController2 : MonoBehaviour
 
         _rb.AddForce(transform.right * Vect.x * _speed);
         _rb.AddForce(transform.up * Vect.y * _speed);
+
+        if (Input.GetButton("Fire2") && _currentItem)
+        {
+            Instantiate(_currentItem);
+            _currentItem = null;
+            _currentItemUI.sprite = null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("ItemBox"))
+        if (_itemList.ContainsKey(collision.gameObject.tag))
         {
-            Destroy(collision.gameObject);
-            //_generator.GetComponent<EnemyGenerator>().GenerationOBJ();
+            _currentItem = _itemList[collision.gameObject.tag];
+            _currentItemUI.sprite = _itemList[collision.gameObject.tag].GetComponent<SpriteRenderer>().sprite;
         }
-        _hit.Invoke();
+        else if (_itemList2.ContainsKey(collision.gameObject.tag))
+        {
+            _currentItem = _itemList2[collision.gameObject.tag];
+            _currentItemUI.sprite = _itemList2[collision.gameObject.tag].GetComponent<SpriteRenderer>().sprite;
+        }
+        if (!collision.gameObject.CompareTag("BuckGround"))
+        {
+            _hit.Invoke();
+        }
     }
-
     void WakeUpPlayer(GameManager.GameTrun gameTurn)
     {
         if (gameTurn == GameManager.GameTrun.GameStart)
