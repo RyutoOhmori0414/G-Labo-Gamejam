@@ -5,7 +5,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     private AudioSource audioSouse;
+    [Header("BGM")]
     [SerializeField] AudioClip[] BGM;
+    [Header("SE")]
     [SerializeField] AudioClip[] SE;
 
     public static SoundManager Instance { get; set; }

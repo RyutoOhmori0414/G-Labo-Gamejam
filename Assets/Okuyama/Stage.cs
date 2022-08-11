@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    [SerializeField] int _GoleInstans = 10;
-    [SerializeField] float _backGroundSpeed = 0.2f;
-    [SerializeField] float _speedMax = 5;
-    [SerializeField] float _speed = 5;
-    [SerializeField] float _minusSpeed = 3;
-    [SerializeField] EnemyGenerator _enemyGenerator;
-    [SerializeField] SpriteRenderer[] _nigthStage;
-    [SerializeField] SpriteRenderer[] _brakingDownStage;
+    [Header("ゴールを生成するタイミング")]
+    [SerializeField, Tooltip("ゴールを生成するタイミング")]  int _goleTiming = 10;
+
+    [Header("マックススピード")]
+    [SerializeField, Tooltip("マックススピード")] float _speedMax = 5;
+
+    [Header("減らすスピード")]
+    [SerializeField, Tooltip("減らすスピード")] float _minusSpeed = 3;
+
+    [Header("EnemyGenerator")]
+    [SerializeField, Tooltip("EnemyGenerator")] EnemyGenerator _enemyGenerator;
+
+    [Header("夜のスプライト")]
+    [SerializeField, Tooltip("夜のスプライト")] SpriteRenderer[] _nigthStage;
+
+    [Header("明け方のスプライト")]
+    [SerializeField, Tooltip("明け方のスプライト")] SpriteRenderer[] _brakingDownStage;
+    
+    [Tooltip("現在のスピード")]float _speed = 5;
+    [Tooltip("背景の透明にする速さ")] float _backGroundSpeed = 0.2f;
     [Tooltip("スタート位置")]private Vector2 startPos;
     [Tooltip("背景幅")] float repeatWidth;
-    bool _mainusBool = false;
-    int _goleCount = 0;
+    [Tooltip("引き算をした時のBool")] bool _mainusBool = false;
+    [Tooltip("ステージが代わった回数")] int _stageCount = 0;
 
     void Start()
     {
@@ -45,8 +57,8 @@ public class Stage : MonoBehaviour
         if (transform.position.x < startPos.x - repeatWidth)
         {
             transform.position = startPos;
-            _goleCount++;
-            if(_goleCount == _GoleInstans) { _enemyGenerator.GoalGeneration(); }
+            _stageCount++;
+            if(_stageCount == _goleTiming) { _enemyGenerator.GoalGeneration(); }
         }
         transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
     }
@@ -62,6 +74,8 @@ public class Stage : MonoBehaviour
         if (transform.position.x < startPos.x - repeatWidth)
         {
             transform.position = startPos;
+            _stageCount++;
+            if (_stageCount == _goleTiming) { _enemyGenerator.GoalGeneration(); }
         }
         transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
     }
@@ -77,6 +91,8 @@ public class Stage : MonoBehaviour
         if (transform.position.x < startPos.x - repeatWidth)
         {
             transform.position = startPos;
+            _stageCount++;
+            if (_stageCount == _goleTiming) { _enemyGenerator.GoalGeneration(); }
         }
         transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
     }
