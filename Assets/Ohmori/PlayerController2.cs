@@ -85,6 +85,7 @@ public class PlayerController2 : MonoBehaviour
         {
             _bgScript.Speed();
             GetComponent<Animator>().Play("OnEnemy");
+            Debug.Log("ŒÄ‚Î‚ê‚Æ‚é‚Å");
         }
     }
     void WakeUpPlayer(GameManager.GameTrun gameTurn)
