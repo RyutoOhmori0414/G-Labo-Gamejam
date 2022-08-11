@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerController1 : MonoBehaviour
 {
     /// <summary>被弾した場合の処理</summary>
-    public static event Action _hit;
+    public event Action _hit;
     Rigidbody2D _rb = default;
     //水平方向の入力
     float _horizontal = default;
@@ -24,6 +24,8 @@ public class PlayerController1 : MonoBehaviour
     Dictionary<string,GameObject> _itemList = new Dictionary<string, GameObject>();
     /// <summary>現在持っているアイテム</summary>
     [SerializeField] GameObject _currentItem;
+
+    [SerializeField] GameManager _gameManager;
     /// <summary>お助けアイテム</summary>
     [Header("お助けアイテム　ItemBoxのTag Ctrlを押して出るGameObject")]
     [SerializeField] List<string> _tags2 = new List<string>();
@@ -39,7 +41,8 @@ public class PlayerController1 : MonoBehaviour
     [SerializeField] Transform _muzzle;
     private void OnEnable()
     {
-        GameManager.NowGameTrun += WakeUpPlayer;
+        
+        _gameManager.NowGameTrun += WakeUpPlayer;
     }
     void Start()
     {

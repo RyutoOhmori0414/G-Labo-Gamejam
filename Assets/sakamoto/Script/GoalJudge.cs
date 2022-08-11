@@ -13,8 +13,8 @@ public class GoalJudge : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        _player1Win = GameObject.Find("Rezarut/Player1WinPanel"); ;
-        _player1Win = GameObject.Find("Rezarut/Player2WinPanel"); ;
+        _player1Win = GameObject.Find("Rezarut/Player1WinPanel"); 
+        _player1Win = GameObject.Find("Rezarut/Player2WinPanel");
 
     }
 
@@ -28,17 +28,12 @@ public class GoalJudge : MonoBehaviour
     {
         if (collision.gameObject.name == "Player1" && _gameManager.NowTrun == GameManager.GameTrun.GameStart)
         {
-            SoundManager.Instance.Play(1, 0);
-            SoundManager.Instance.Play(1, 5);
-            _player1Win.SetActive(true);
-            _gameManager.ChengeType(GameManager.GameTrun.Result);
+            _gameManager.Result("1");
+            Debug.Log("�Ă΂ꂽ");
         }
         else if (collision.gameObject.name == "Player2" && _gameManager.NowTrun == GameManager.GameTrun.GameStart) 
         {
-            SoundManager.Instance.Play(1, 0);
-            SoundManager.Instance.Play(1, 5);
-            _player1Win.SetActive(true);
-            _gameManager.ChengeType(GameManager.GameTrun.Result);
+            _gameManager.Result("2");
         }
         
     }

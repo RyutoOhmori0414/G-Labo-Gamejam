@@ -23,12 +23,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] float _fastTime = 60, _secondTime = 30;
     [Header("Gameを始めるまでの時間")]
     [SerializeField] float _startWaitTime = 0;
+    [SerializeField] GameObject _player1Win;
+    [SerializeField] GameObject _player2Win;
+    [SerializeField] GameObject _conte;
     [Tooltip("現在のゲームターン")]
     GameTrun _gameTrun = GameTrun.StandbyTurn;
 
     public GameTrun NowTrun => _gameTrun;
     /// <summary>現在のターンが変わった時に通知する</summary>
-    public static event Action<GameTrun> NowGameTrun;
+    public event Action<GameTrun> NowGameTrun;
     [Tooltip("時間をはかる")]
     float _countTime;
     [Header("時間を表示するテキスト")]
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
         if (_countTime > _startWaitTime && _gameTrun == GameTrun.StandbyTurn)
         {
             _gameTrun = GameTrun.GameStart;
-            Debug.Log("呼ばれた");
+            Debug.Log("GameManager呼ばれた");
             NowGameTrun(_gameTrun);
             _timeText.gameObject.SetActive(false);
         }
@@ -87,5 +90,26 @@ public class GameManager : MonoBehaviour
     public void ChengeType(GameTrun trun)
     {
         _gameTrun = trun;
+    }
+
+    public void Result(string str)
+    {
+        if (str == "1")
+        {
+            SoundManager.Instance.Play(1, 0);
+            SoundManager.Instance.Play(1, 5);
+            _player1Win.SetActive(true);
+            _conte.SetActive(true);
+            _gameTrun = GameManager.GameTrun.Result;
+        }
+        else if (str == "2")
+        {
+            SoundManager.Instance.Play(1, 0);
+            SoundManager.Instance.Play(1, 5);
+
+            _player2Win.SetActive(true);
+            _conte.SetActive(true);
+            _gameTrun = GameManager.GameTrun.Result;
+        }
     }
 }
