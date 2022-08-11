@@ -17,6 +17,8 @@ public class BombScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(this.gameObject, 20f);
+
         var player1 = Vector3.Distance(GameObject.Find("Player1").transform.position,this.gameObject.transform.position); 
         var player2 = Vector3.Distance(GameObject.Find("Player2").transform.position,this.gameObject.transform.position);
 
@@ -54,12 +56,12 @@ public class BombScript : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// 自分自身が画面外に行ったときにDestroyする
-    /// ただし最初から画面外にいた場合は呼ばれず再度画面外に出ると呼ばれる
-    /// </summary>
-    private void OnBecameInvisible()
-    {
-        Destroy(this.gameObject);
-    }
+    ///// <summary>
+    ///// 自分自身が画面外に行ったときにDestroyする
+    ///// ただし最初から画面外にいた場合は呼ばれず再度画面外に出ると呼ばれる
+    ///// </summary>
+    //private void OnBecameInvisible()
+    //{
+    //    Destroy(this.gameObject);
+    //}
 }
