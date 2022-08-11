@@ -10,9 +10,6 @@ public class GoalController : MonoBehaviour
 
     [Header("RigidBody")]
     [SerializeField] Rigidbody2D _rb;
-
-    [Header("ResultScene‚Ì–¼‘O")]
-    [SerializeField] string _resultName;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +21,4 @@ public class GoalController : MonoBehaviour
     {
         _rb.velocity = new Vector2(_speed * -1, 0);
     }
-
 }
