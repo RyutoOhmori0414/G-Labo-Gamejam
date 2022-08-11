@@ -28,6 +28,9 @@ public class PlayerController2 : MonoBehaviour
     /// <summary>現在持っているアイテムを表示するUI</summary>
     [Header("現在持っているアイテムを表示するUI")]
     [SerializeField] Image _currentItemUI;
+    /// <summary>BackGroundのスクリプト</summary>
+    [Header("BackGroundのスクリプト")]
+    [SerializeField] Stage _bgScript;
     private void OnEnable()
     {
         GameManager.NowGameTrun += WakeUpPlayer;
@@ -80,7 +83,8 @@ public class PlayerController2 : MonoBehaviour
         }
         if (!collision.gameObject.CompareTag("BuckGround"))
         {
-            _hit.Invoke();
+            _bgScript.Speed();
+            GetComponent<Animator>().Play("OnEnemy");
         }
     }
     void WakeUpPlayer(GameManager.GameTrun gameTurn)
