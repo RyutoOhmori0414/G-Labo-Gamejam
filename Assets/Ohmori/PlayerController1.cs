@@ -38,7 +38,7 @@ public class PlayerController1 : MonoBehaviour
     /// <summary>BackGroundのスクリプト</summary>
     [Header("BackGroundのスクリプト")]
     [SerializeField] Stage _bgScript;
-    [SerializeField] Transform _muzzle;
+    [SerializeField] GameObject _muzzle;
     private void OnEnable()
     {
         
@@ -82,7 +82,7 @@ public class PlayerController1 : MonoBehaviour
 
         if (Input.GetButton("Fire1") && _currentItem)
         {
-            Instantiate(_currentItem, _muzzle);
+            Instantiate(_currentItem, _muzzle.transform.position, _muzzle.transform.rotation) ;
             _currentItem = null;
             _currentItemUI.sprite = null;
         }
