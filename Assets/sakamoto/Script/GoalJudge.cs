@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GoalJudge : MonoBehaviour
 {
-    [SerializeField] GameObject _player1Win;
-    [SerializeField] GameObject _player2Win;
+    GameObject _player1Win;
+    GameObject _player2Win;
 
     GameManager _gameManager;
 
@@ -13,6 +13,9 @@ public class GoalJudge : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _player1Win = GameObject.Find("Rezarut/Player1WinPanel"); ;
+        _player1Win = GameObject.Find("Rezarut/Player2WinPanel"); ;
+
     }
 
     // Update is called once per frame
@@ -25,13 +28,21 @@ public class GoalJudge : MonoBehaviour
     {
         if (collision.gameObject.name == "Player1" && _gameManager.NowTrun == GameManager.GameTrun.GameStart)
         {
+<<<<<<< HEAD
             SoundManager.Instance.Play(1, 0);
+=======
+            SoundManager.Instance.Play(1, 5);
+>>>>>>> c37fd8ec5f7ffb7e6a873b145962052a7b3e5b05
             _player1Win.SetActive(true);
             _gameManager.ChengeType(GameManager.GameTrun.Result);
         }
         else if (collision.gameObject.name == "Player2" && _gameManager.NowTrun == GameManager.GameTrun.GameStart) 
         {
+<<<<<<< HEAD
             SoundManager.Instance.Play(1, 0);
+=======
+            SoundManager.Instance.Play(1, 5);
+>>>>>>> c37fd8ec5f7ffb7e6a873b145962052a7b3e5b05
             _player1Win.SetActive(true);
             _gameManager.ChengeType(GameManager.GameTrun.Result);
         }
