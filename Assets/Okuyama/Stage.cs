@@ -19,8 +19,6 @@ public class Stage : MonoBehaviour
 
     void Start()
     {
-        //SoundManager.Instance.Play(0, 0);
-        //SoundManager.Instance.Play(1, 0);
         startPos = transform.position;
         repeatWidth = GetComponent<BoxCollider2D>().size.x / 2;
     }
@@ -47,7 +45,7 @@ public class Stage : MonoBehaviour
         {
             transform.position = startPos;
             _goleCount++;
-            //if(_goleCount == _GoleInstans) { _enemyGenerator.GoleGeneration()}
+            if(_goleCount == _GoleInstans) { _enemyGenerator.GoalGeneration(); }
         }
         transform.Translate(Vector3.left * _speed * Time.deltaTime, Space.World);
     }

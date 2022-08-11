@@ -491,6 +491,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &498488555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498488556}
+  - component: {fileID: 498488557}
+  m_Layer: 0
+  m_Name: EnemyGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &498488556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498488555}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 33.862583, y: 4.296459, z: -0.79371685}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1081811132}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498488557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498488555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2759603c2842840978afd94c4519c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _generationLocation: []
+  _goalPosition: {fileID: 0}
+  _generationObj: []
+  _disturbPrefab: {fileID: 0}
+  _generationTime: 0
+  _goalPrefab: {fileID: 0}
 --- !u!1001 &561479564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,6 +549,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 47431477}
     m_Modifications:
+    - target: {fileID: 8764262778766341128, guid: 46997cd2f7f62b44c8e7e11defa09de3, type: 3}
+      propertyPath: _generator
+      value: 
+      objectReference: {fileID: 498488555}
     - target: {fileID: 8764262778766341131, guid: 46997cd2f7f62b44c8e7e11defa09de3, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -743,6 +797,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1 BackGround
       objectReference: {fileID: 0}
+    - target: {fileID: 858479411924678942, guid: c3658c34971004d4d978379523e6fa67, type: 3}
+      propertyPath: m_TagString
+      value: BuckGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 858479411924678943, guid: c3658c34971004d4d978379523e6fa67, type: 3}
+      propertyPath: _enemyGenerator
+      value: 
+      objectReference: {fileID: 498488557}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c3658c34971004d4d978379523e6fa67, type: 3}
@@ -787,6 +849,7 @@ Transform:
   m_Children:
   - {fileID: 884599762}
   - {fileID: 263159849}
+  - {fileID: 498488556}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -846,6 +909,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2 BackGround (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 858479411924678942, guid: c3658c34971004d4d978379523e6fa67, type: 3}
+      propertyPath: m_TagString
+      value: BuckGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 858479411924678943, guid: c3658c34971004d4d978379523e6fa67, type: 3}
+      propertyPath: _enemyGenerator
+      value: 
+      objectReference: {fileID: 498488557}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c3658c34971004d4d978379523e6fa67, type: 3}
@@ -901,6 +972,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 47431477}
     m_Modifications:
+    - target: {fileID: 8764262778766341128, guid: 46997cd2f7f62b44c8e7e11defa09de3, type: 3}
+      propertyPath: _generator
+      value: 
+      objectReference: {fileID: 498488555}
     - target: {fileID: 8764262778766341131, guid: 46997cd2f7f62b44c8e7e11defa09de3, type: 3}
       propertyPath: m_Name
       value: Player1
