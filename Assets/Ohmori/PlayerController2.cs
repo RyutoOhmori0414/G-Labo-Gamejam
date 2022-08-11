@@ -38,7 +38,7 @@ public class PlayerController2 : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>(); 
-        //_rb.simulated = false;
+        _rb.simulated = false;
     }
 
     // Update is called once per frame
