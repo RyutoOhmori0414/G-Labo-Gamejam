@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]float _startWaitTime = 0;
     [Tooltip("現在のゲームターン")]
     GameTrun _gameTrun = GameTrun.StandbyTurn;
+
+    public GameTrun NowTrun => _gameTrun;
     /// <summary>現在のターンが変わった時に通知する</summary>
     public static event Action<GameTrun> NowGameTrun;
     [Tooltip("時間をはかる")]
@@ -74,5 +76,13 @@ public class GameManager : MonoBehaviour
             _timeText.text = _countTime.ToString("F0");
         }
 
+    }
+
+    /// <summary>
+    /// ゲームの状態をリザルトに変える
+    /// </summary>
+    public void ChengeType(GameTrun trun) 
+    {
+        _gameTrun = trun;
     }
 }
