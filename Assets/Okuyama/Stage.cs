@@ -19,6 +19,8 @@ public class Stage : MonoBehaviour
 
     void Start()
     {
+        //SoundManager.Instance.Play(0, 0);
+        //SoundManager.Instance.Play(1, 0);
         startPos = transform.position;
         repeatWidth = GetComponent<BoxCollider2D>().size.x / 2;
     }
