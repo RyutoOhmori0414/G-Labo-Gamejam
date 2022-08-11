@@ -25,11 +25,13 @@ public class GoalJudge : MonoBehaviour
     {
         if (collision.gameObject.name == "Player1" && _gameManager.NowTrun == GameManager.GameTrun.GameStart)
         {
+            SoundManager.Instance.Play(1, 5);
             _player1Win.SetActive(true);
             _gameManager.ChengeType(GameManager.GameTrun.Result);
         }
         else if (collision.gameObject.name == "Player2" && _gameManager.NowTrun == GameManager.GameTrun.GameStart) 
         {
+            SoundManager.Instance.Play(1, 5);
             _player1Win.SetActive(true);
             _gameManager.ChengeType(GameManager.GameTrun.Result);
         }
