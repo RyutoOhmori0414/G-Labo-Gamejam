@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     float timer = 120;
     [SerializeField]
     GameObject result = null;
+    [SerializeField] float _fastTime = 60,_secondTime = 30;
     [Header("Gameを始めるまでの時間")]
     [SerializeField]float _startWaitTime = 0;
     [Tooltip("現在のゲームターン")]
@@ -29,20 +30,30 @@ public class GameManager : MonoBehaviour
     float _countTime;
     [Header("時間を表示するテキスト")]
     [SerializeField] Text _timeText;
+    [SerializeField] Stage[] _stage;
     //MAX2min 減ってく
 
 
 
     void Start()
     {
-        
+        timer += _startWaitTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += _startWaitTime;
         timer -= Time.deltaTime;
+        if(timer < _fastTime)
+        {
+            _stage[0].Timer30();
+            _stage[1].Timer30();
+            if (timer < _secondTime)
+            {
+                _stage[0].Timer0();
+                _stage[1].Timer0();
+            }
+        }
         if (timer < 0)
         {
             result.SetActive(true);
