@@ -17,7 +17,7 @@ public class sceneJamp : MonoBehaviour
     void GoPlay()
     {
         Debug.Log("押された");
-        //SoundManager.Instance.Play(1, 4);
+        
         //SceneManager.LoadScene("");
     }
 
@@ -36,6 +36,12 @@ public class sceneJamp : MonoBehaviour
         //SoundManager.Instance.Play(1, 4);
         Debug.Log("コンティニューボタンが押された");
         SceneManager.LoadScene("Title");
+    }
+
+    public void GoGuideline()
+    {
+        //SoundManager.Instance.Play(1, 4);
+        SceneManager.LoadScene("Guideline");
     }
 
 }
