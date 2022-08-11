@@ -27,6 +27,12 @@ public class EnemyGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimeGeneration();
+    }
+
+    /// <summary>İ’è‚µ‚½ŠÔ‚²‚Æ‚ÉList‚ÌObject‚ğƒ‰ƒ“ƒ_ƒ€‚É¶¬‚·‚é</summary>
+    void TimeGeneration() 
+    {
         _countTime += Time.deltaTime;
 
         if (_countTime > _generationTime)
