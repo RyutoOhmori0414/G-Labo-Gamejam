@@ -10,20 +10,29 @@ public class EnemyGenerator : MonoBehaviour
     [Header("ゴールを生成する場所")]
     [SerializeField] GameObject _goalPosition;
 
-    [Header("生成するObject")]
+    [Header("生成するお邪魔Object")]
     [SerializeField] List<GameObject> _generationObj = new List<GameObject>();
+
+    [Header("生成するアイテム")]
+    [SerializeField] List<GameObject> _generationItem = new List<GameObject>(); 
 
     [Header("お邪魔アイテムのPrefab")]
     [SerializeField] GameObject _disturbPrefab;
 
-    [Header("生成する時間")]
+    [Header("お邪魔アイテムを生成する時間")]
     [SerializeField] float _generationTime = 0;
+
+    [Header("お助けアイテムを生成する時間")]
+    [SerializeField] float _itemGenerationTime = 0;
 
     [Header("ゴールのPrefab")]
     [SerializeField] GameObject _goalPrefab;
 
     [Tooltip("TImeをカウントする")]
     float _countTime = 0;
+
+    [Tooltip("ItemTimeをカウントする")]
+    float _itemCountTime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +49,7 @@ public class EnemyGenerator : MonoBehaviour
     void TimeGeneration() 
     {
         _countTime += Time.deltaTime;
+        _itemCountTime += Time.deltaTime;   
 
         if (_countTime > _generationTime)
         {
@@ -49,6 +59,16 @@ public class EnemyGenerator : MonoBehaviour
             GameObject Ins = Instantiate(_generationObj[ObjectNum], _generationLocation[priceNum].transform.position, _generationLocation[priceNum].transform.rotation);
 
             _countTime = 0;
+        }
+
+        if(_itemCountTime > _itemGenerationTime)
+        {
+            int priceNum = Random.Range(0, _generationLocation.Count);
+            int ObjectNum = Random.Range(0, _generationItem.Count);
+
+            GameObject Ins = Instantiate(_generationItem[ObjectNum], _generationLocation[priceNum].transform.position, _generationLocation[priceNum].transform.rotation);
+
+            _itemCountTime = 0;
         }
     }
 
@@ -61,6 +81,7 @@ public class EnemyGenerator : MonoBehaviour
         GameObject Ins = Instantiate(_disturbPrefab, _generationLocation[priceNum].transform.position, _generationLocation[priceNum].transform.rotation);
     }
 
+    /// <summary>ゴールのオブジェクトを生成する</summary>
     public void GoalGeneration() 
     {
         GameObject Ins = Instantiate(_goalPrefab, _generationLocation[1].transform.position, _generationLocation[1].transform.rotation);
