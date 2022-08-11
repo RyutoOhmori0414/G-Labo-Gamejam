@@ -28,21 +28,15 @@ public class GoalJudge : MonoBehaviour
     {
         if (collision.gameObject.name == "Player1" && _gameManager.NowTrun == GameManager.GameTrun.GameStart)
         {
-<<<<<<< HEAD
             SoundManager.Instance.Play(1, 0);
-=======
             SoundManager.Instance.Play(1, 5);
->>>>>>> c37fd8ec5f7ffb7e6a873b145962052a7b3e5b05
             _player1Win.SetActive(true);
             _gameManager.ChengeType(GameManager.GameTrun.Result);
         }
         else if (collision.gameObject.name == "Player2" && _gameManager.NowTrun == GameManager.GameTrun.GameStart) 
         {
-<<<<<<< HEAD
             SoundManager.Instance.Play(1, 0);
-=======
             SoundManager.Instance.Play(1, 5);
->>>>>>> c37fd8ec5f7ffb7e6a873b145962052a7b3e5b05
             _player1Win.SetActive(true);
             _gameManager.ChengeType(GameManager.GameTrun.Result);
         }

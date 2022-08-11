@@ -40,7 +40,11 @@ public class Stage : MonoBehaviour
         if (_mainusBool) 
         { 
             _speed += Time.deltaTime;
-            if(_speedMax == _speed) { _mainusBool = false;}
+            if(_speedMax <= _speed) 
+            { 
+                _mainusBool = false;
+                _speed = _speedMax;
+            }
         }
         Timer60();
     }
