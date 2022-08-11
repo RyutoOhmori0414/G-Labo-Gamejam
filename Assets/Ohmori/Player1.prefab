@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6506622189969623558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -205,6 +205,7 @@ MonoBehaviour:
   _Item2: []
   _currentItemUI: {fileID: 0}
   _bgScript: {fileID: 0}
+  _muzzle: {fileID: 0}
 --- !u!95 &8764262778766341133
 Animator:
   serializedVersion: 4
