@@ -84,6 +84,7 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary>ゴールのオブジェクトを生成する</summary>
     public void GoalGeneration() 
     {
+        Debug.Log("呼ばれとるで");
         GameObject Ins = Instantiate(_goalPrefab, _generationLocation[1].transform.position, _generationLocation[1].transform.rotation);
     }
 }

@@ -1104,6 +1104,10 @@ PrefabInstance:
       value: BuckGround
       objectReference: {fileID: 0}
     - target: {fileID: 858479411924678943, guid: c3658c34971004d4d978379523e6fa67, type: 3}
+      propertyPath: _GoleInstans
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 858479411924678943, guid: c3658c34971004d4d978379523e6fa67, type: 3}
       propertyPath: _enemyGenerator
       value: 
       objectReference: {fileID: 498488557}
