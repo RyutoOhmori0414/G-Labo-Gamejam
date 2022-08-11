@@ -6,7 +6,7 @@ using UnityEngine;
 public class BombScript : MonoBehaviour
 {
     //[Header("爆発したときのエフェクト")]
-    //[SerializeField] GameObject _bombEffect;
+    [SerializeField] GameObject _bombEffect;
     [SerializeField] Rigidbody2D _rb;
     [Tooltip("上に飛ぶかどうか")] bool _isUp;
     [Header("上に飛んでいくスピード")]
@@ -46,7 +46,8 @@ public class BombScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) 
         {
             //プレイヤーに当たった時エフェクトを生成する
-         //   GameObject ins = Instantiate(_bombEffect, this.gameObject.transform.position, this.gameObject.transform.rotation);
+         　 GameObject ins = Instantiate(_bombEffect, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            Destroy(ins, 0.5f);
             this.gameObject.SetActive(false);
             Destroy(this.gameObject, 2f);
         }
