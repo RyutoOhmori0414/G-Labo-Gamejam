@@ -12,6 +12,8 @@ public class ItemController : MonoBehaviour
     [Header("’Ç”ö‚·‚é‚©‚Ç‚¤‚©")]
     [SerializeField] bool _isTracking = false;
 
+    SoundManager _soundManager;
+
     [Tooltip("’Ç”ö‚·‚é’e‚Ì‘¬“x")]
     Vector3 velocity;
     [Tooltip("”­Ë‚³‚ê‚é‚Æ‚«‚Ì‰ŠúˆÊ’u")]
@@ -24,14 +26,17 @@ public class ItemController : MonoBehaviour
     float period = 2f;
     void Start()
     {
-        target = GameObject.Find("Player").GetComponent<Transform>();
+       // target = GameObject.Find("Player").GetComponent<Transform>();
         _positionObj = transform.position;
+
+        _soundManager = SoundManager.Instance;
 
     }
 
     void Update()
     {
         TrackingBool();
+
     }
 
     void FixedUpdate()
@@ -104,5 +109,22 @@ public class ItemController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+
+     public void Sound() 
+    {
+        if(gameObject.name == "Fukurou") 
+        {
+            _soundManager.Play(1, 0);
+        }
+        else if(gameObject.name == "Fire") 
+        {
+            int a = Random.Range(0, 5);
+            if (a == 0) 
+            {
+                _soundManager.Play(1, 1);
+            }
+        }
+
+    } 
 
 }
