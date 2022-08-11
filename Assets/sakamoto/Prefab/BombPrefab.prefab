@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2f8b97cee8236449c350782424ec95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bombEffect: {fileID: 0}
+  _bombEffect: {fileID: 7215807575237449501, guid: 44921a17695c3c04ebe5d1cfef5cfe90, type: 3}
   _rb: {fileID: 8635290863197475177}
-  _upSpeed: 0
-  _downSpeed: 0
+  _upSpeed: 3
+  _downSpeed: -3
 --- !u!50 &8635290863197475177
 Rigidbody2D:
   serializedVersion: 4

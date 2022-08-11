@@ -19,18 +19,24 @@ public class PlayerController1 : MonoBehaviour
     [SerializeField] GameObject _generator;
     /// <summary>お邪魔アイテム</summary>
     [Header("お邪魔アイテム　ItemBoxのTag Ctrlを押して出るGameObject")]
-    [SerializeField] Dictionary<string,GameObject> _itemList = new Dictionary<string, GameObject>();
+    [SerializeField] List<string> _tags1 = new List<string>();
+    [SerializeField] List<GameObject> _Item1 = new List<GameObject>();
+    Dictionary<string,GameObject> _itemList = new Dictionary<string, GameObject>();
     /// <summary>現在持っているアイテム</summary>
     [SerializeField] GameObject _currentItem;
     /// <summary>お助けアイテム</summary>
     [Header("お助けアイテム　ItemBoxのTag Ctrlを押して出るGameObject")]
-    [SerializeField] Dictionary<string, GameObject> _itemList2 = new Dictionary<string, GameObject>();
+    [SerializeField] List<string> _tags2 = new List<string>();
+    [SerializeField] List<GameObject> _Item2 = new List<GameObject>();
+
+    Dictionary<string, GameObject> _itemList2 = new Dictionary<string, GameObject>();
     /// <summary>現在持っているアイテムを表示するUI</summary>
     [Header("現在持っているアイテムを表示するUI")]
     [SerializeField] Image _currentItemUI;
     /// <summary>BackGroundのスクリプト</summary>
     [Header("BackGroundのスクリプト")]
     [SerializeField] Stage _bgScript;
+    [SerializeField] Transform _muzzle;
     private void OnEnable()
     {
         GameManager.NowGameTrun += WakeUpPlayer;
@@ -39,6 +45,16 @@ public class PlayerController1 : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>(); 
         _rb.simulated = false;
+
+        for (int i = 0; i < _tags1.Count; i++)
+        {
+            _itemList.Add(_tags1[i], _Item1[i]);
+        }
+
+        for (int i = 0; i < _tags2.Count; i++)
+        {
+            _itemList2.Add(_tags2[i], _Item2[i]);
+        }
     }
 
     // Update is called once per frame
@@ -63,7 +79,7 @@ public class PlayerController1 : MonoBehaviour
 
         if (Input.GetButton("Fire1") && _currentItem)
         {
-            Instantiate(_currentItem);
+            Instantiate(_currentItem, _muzzle);
             _currentItem = null;
             _currentItemUI.sprite = null;
         }
