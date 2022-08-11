@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GoalJudge : MonoBehaviour
 {
-    [SerializeField] GameObject _player1Win;
-    [SerializeField] GameObject _player2Win;
+    GameObject _player1Win;
+    GameObject _player2Win;
 
     GameManager _gameManager;
 
@@ -13,6 +13,9 @@ public class GoalJudge : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _player1Win = GameObject.Find("Rezarut/Player1WinPanel"); ;
+        _player1Win = GameObject.Find("Rezarut/Player2WinPanel"); ;
+
     }
 
     // Update is called once per frame
