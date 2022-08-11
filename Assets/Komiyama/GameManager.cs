@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         {
             result.SetActive(true);
             _gameTrun = GameTrun.GameOver;
+            SoundManager.Instance.Play(0, 3);
         }
 
         _countTime += Time.deltaTime;
