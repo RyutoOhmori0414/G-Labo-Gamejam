@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4174516557017776067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.26, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 2892831029002769734}
-  _speed: -3
+  _speed: -10
   _isTracking: 0
 --- !u!50 &2892831029002769734
 Rigidbody2D:
